@@ -10,11 +10,12 @@ constructor(){
 bindEvents(){
   // subsribes to change in beer selection from beer form view
   PubSub.subscribe('BeerSelection:Change',(event) => {
-    const selectIndex = event.detail;
-    console.log(selectIndex);
-  PubSub.publish('Beers:Selected-beers-ready',selectIndex)
+    const selectorIndex = event.detail;
+    console.log(this.data);
+    const selectedBeer = this.data[selectorIndex];
+    PubSub.publish('Beers:Selected-beers-ready',selectedBeer)
+    console.log(selectedBeer);
 
-    // this.publishInstrumentdetails(selectIndex)
   });
 }
 
@@ -25,14 +26,16 @@ getData(){
     requestHelper.get()
       .then((data) => {
         this.data = data;
-        console.log(data);
-        PubSub.publish('Beers:All-beers-ready',this.data);
+        console.log(this.data);
+        PubSub.publish('Beers:All-beers-ready', this.data);
       })
   }
 
-
-
-
-
-}
+  // publishSelectedBeer(beerIndex){
+  //
+  //   const selectedBeer = this.data[beerIndex];
+  //   PubSub.publish('Beers:Selected-beers-ready',selectedBeer)
+  //
+  // }
+};
 module.exports = Beer;

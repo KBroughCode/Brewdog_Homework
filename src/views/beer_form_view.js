@@ -7,11 +7,12 @@ class BeerFormView {
   }
 
     bindEvents() {
-      //llistening for bears all ready so it can produce a dropdown list
+      //llistening for beers all ready so it can produce a dropdown list
       //using the selectBeer function
       PubSub.subscribe('Beers:All-beers-ready',(event) =>{
         const allBeers = event.detail;
-        this.selectBeer(allBeers);
+        this.selectBeerList(allBeers);
+        console.log(allBeers)
       });
 
       // listening for a change in value/name of beer and
@@ -23,12 +24,11 @@ class BeerFormView {
   }
       // select beer function creates dropdown list of Beers
       // using the array of beer info from API
-    selectBeer(beerData){
+    selectBeerList(beerData){
       beerData.forEach((beer,index)=>{
         const option = document.createElement('option');
         option.textContent = beer.name;
-        option.value = beer.name;
-        console.log(option);
+        option.value = index;
         this.element.appendChild(option)
     });
   }

@@ -10,18 +10,22 @@ class BeerView{
   bindEvents(){
       PubSub.subscribe('Beers:Selected-beers-ready', (event) =>{
         const beer = event.detail;
-        console.log(beer);
         this.publish(beer)
-        console.log(beer);
       })
     }
 
   publish(beer){
       const beerName = document.createElement('h2');
-      beerName.textContent = beer;
-      console.log(beer.name);
+      beerName.textContent = beer.name;
       this.container.innerHTML = " ";
       this.container.appendChild(beerName);
+
+      const tagline = document.createElement('h1');
+      tagline.textContent = beer.tagline;
+      this.container.innerHTML = " ";
+      this.container.appendChild(tagline);
+
+
     // const beerImg = document.createElement('img')
     // beerImg.src = beer;
     // return beerImg
