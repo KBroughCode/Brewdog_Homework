@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   beerView.bindEvents();
 
   const beerModel = new Beer();
-  beerModel.bindEvents()
+  beerModel.bindEvents();
   beerModel.getData();
 
 });

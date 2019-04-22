@@ -15,15 +15,29 @@ class BeerView{
     }
 
   publish(beer){
+
+    this.container.innerHTML = " ";
+
       const beerName = document.createElement('h2');
       beerName.textContent = beer.name;
-      this.container.innerHTML = " ";
       this.container.appendChild(beerName);
 
-      const tagline = document.createElement('h1');
+      const tagline = document.createElement('h3');
       tagline.textContent = beer.tagline;
-      this.container.innerHTML = " ";
       this.container.appendChild(tagline);
+
+      const description = document.createElement('h3');
+      description.textContent = beer.description;
+      this.container.appendChild(description);
+
+      const foodPairing = document.createElement('h3');
+      foodPairing.textContent = beer.food_pairing;
+      this.container.appendChild(foodPairing);
+
+      const beerImage = document.createElement('img');
+      beerImage.src = beer.image_url;
+      beerImage.id = "beer-img";
+      this.container.appendChild(beerImage);
 
 
     // const beerImg = document.createElement('img')

@@ -1,0 +1,19 @@
+
+#beer-info-display{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  border-style: solid;
+  border-width: thick;
+  border-radius: 25px;
+  border-color: black;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 50px;
+  transition: transform.2s;
+
+}
+
+ #beer-img {
+width: 200px;
+height: 300px;
+}
