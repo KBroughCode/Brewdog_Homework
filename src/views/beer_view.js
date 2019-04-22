@@ -18,20 +18,23 @@ class BeerView{
 
     this.container.innerHTML = " ";
 
-      const beerName = document.createElement('h2');
+      const beerName = document.createElement('h1');
       beerName.textContent = beer.name;
       this.container.appendChild(beerName);
 
-      const tagline = document.createElement('h3');
-      tagline.textContent = beer.tagline;
+      const tagline = document.createElement('h2');
+      tagline.textContent = '- ' + beer.tagline;
       this.container.appendChild(tagline);
 
       const description = document.createElement('h3');
-      description.textContent = beer.description;
+      description.textContent = 'DESCRIPTION: '+ beer.description;
+      // this.container.innerHTML = "Description";
       this.container.appendChild(description);
 
       const foodPairing = document.createElement('h3');
-      foodPairing.textContent = beer.food_pairing;
+      foodPairing.textContent = 'EAT WITH: '+ beer.food_pairing;
+      foodPairing.id = "food-pairing";
+      // this.container.innerHTML = "Eat with";
       this.container.appendChild(foodPairing);
 
       const beerImage = document.createElement('img');
